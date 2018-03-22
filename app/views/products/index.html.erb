@@ -1,0 +1,17 @@
+<%= flash[:alert] if flash[:alert] %>
+
+<p>You have the following products</p>
+<ul>
+  <%= cart.each do |product| %>
+    <li><%= product %></li>
+  <% end %>
+</ul>
+<h1>Choose Your Product Now </h1>
+
+<%= form_tag "/products/add", method: :post do %>
+
+  <%= label_tag 'add_product' %>
+  <%= text_field_tag 'product' %><br>
+  <%= submit_tag "add to cart" %>
+
+<% end %>
